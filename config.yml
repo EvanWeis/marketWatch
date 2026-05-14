@@ -1,0 +1,28 @@
+fred:
+  observation_days: 30
+  series:
+    T10Y2Y:
+      label: "Yield Curve (T10Y2Y)"
+      inversion_threshold: 0        # flag when value < this
+    DFII10:
+      label: "Real Yield (DFII10)"
+      # flag when rising week-over-week (no absolute threshold)
+    BAMLH0A0HYM2:
+      label: "HY Credit Spread"
+      absolute_threshold: 400       # bps — flag when value > this
+      weekly_delta_threshold: 20    # bps — flag when 7-day rise > this
+
+cftc:
+  label: "CFTC Nasdaq Positioning"
+  weeks: 52
+  percentile_threshold: 80         # flag when net long > this percentile
+
+scoring:
+  thresholds:
+    neutral:   [0, 1]
+    elevated:  [2, 2]
+    warning:   [3, 3]
+    critical:  [4, 4]
+
+feed:
+  max_entries: 90
